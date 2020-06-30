@@ -1,0 +1,9 @@
+首先创建 SqlSessionFactory 实例，SqlSessionFactory 就是创建 SqlSession 的工厂类。
+加载配置文件创建 Configuration 对象，配置文件包括数据库相关配置文件以及我们在 XML 文件中写的 SQL。
+通过 SqlSessionFactory 创建 SqlSession。
+通过 SqlSession 获取 mapper 接口动态代理。
+动态代理回调 SqlSession 中某查询方法。
+SqlSession 将查询方法转发给 Executor。
+Executor 基于 JDBC 访问数据库获取数据，最后还是通过 JDBC 操作数据库。
+Executor 通过反射将数据转换成 POJO 并返回给 SqlSession。
+将数据返回给调用者。
