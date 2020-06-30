@@ -52,13 +52,7 @@ public class SimpleExecutor implements Executor {
     }
 
     private void parameterSize(PreparedStatement preparedStatement, Object parameter) throws SQLException {
-        if (parameter instanceof Integer) {
-            preparedStatement.setInt(1, (Integer) parameter);
-        } else if (parameter instanceof Long) {
-            preparedStatement.setLong(1, (Long) parameter);
-        } else if (parameter instanceof String) {
-            preparedStatement.setString(1, (String) parameter);
-        }
+        preparedStatement.setObject(1, parameter);
     }
 
     private <E> void handleResultSet(ResultSet resultSet, List<E> ret, String className) {
